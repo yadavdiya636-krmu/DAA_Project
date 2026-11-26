@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-slate-50 text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  * { @apply border-slate-200 dark:border-slate-800; }
+  ::-webkit-scrollbar { width: 9px; height: 9px; }
+  ::-webkit-scrollbar-track { @apply bg-transparent; }
+  ::-webkit-scrollbar-thumb { @apply rounded-full bg-slate-300 dark:bg-slate-700; }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-slate-200/80 bg-white shadow-card dark:border-slate-800 dark:bg-slate-900;
+  }
+  .input {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-brand-400 focus:ring-4 focus:ring-brand-500/10 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-500;
+  }
+  .label {
+    @apply mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400;
+  }
+  .table-wrap { @apply overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800; }
+  .data-table { @apply w-full min-w-[760px] border-collapse text-left text-sm; }
+  .data-table thead { @apply bg-slate-50/90 dark:bg-slate-800/60; }
+  .data-table th { @apply whitespace-nowrap px-4 py-3 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400; }
+  .data-table td { @apply border-t border-slate-100 px-4 py-3 align-middle text-slate-700 dark:border-slate-800 dark:text-slate-300; }
+  .data-table tbody tr { @apply transition-colors hover:bg-slate-50/80 dark:hover:bg-slate-800/40; }
+}
+
+/* React Flow theme alignment */
+.react-flow__attribution { display: none; }
+.react-flow__edge-textbg { fill: #ffffff; }
+.dark .react-flow__edge-textbg { fill: #0f172a; }
+.react-flow__controls-button {
+  @apply border-slate-200 bg-white text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700;
+}
+.react-flow__node.selected .rw-node { @apply ring-4 ring-brand-500/25; }
+
+@media print {
+  .no-print { display: none !important; }
+  body { @apply bg-white text-black; }
+  .card { @apply break-inside-avoid shadow-none; }
+}
